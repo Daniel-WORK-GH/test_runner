@@ -237,8 +237,11 @@ namespace Tests
                 }
 
                 var obj = Activator.CreateInstance(method.DeclaringType); // Instantiate the class
-                                                                          //var response = method.Invoke(obj, null); // invoke the method               
-                Action action = (Action)Delegate.CreateDelegate(typeof(Action), method);
+                                                                          // var response = method.Invoke(obj, null); // invoke the method
+                
+                Action action;
+                if(method.IsStatic) action = (Action)Delegate.CreateDelegate(typeof(Action), method);
+                else action = (Action) Delegate.CreateDelegate(typeof(Action), Activator.CreateInstance(method.DeclaringType), method);
 
                 int currentExceptions = TestRunner.FailedTests.Count;
                 action();
