@@ -6,7 +6,7 @@ You can give this class a title using the 'TestTitle' attribute.
 
 ![image](https://github.com/Daniel-WORK-GH/test_runner/assets/120199463/110e6a98-1d45-4d54-8944-851b2adc3f31)
 
-Then create the test method, it needs to be public static and have the 'TestAtr' attribute.
+Then create the test method, it needs to be public and have the 'TestAtr' attribute.
 Use the testing tools: 
  - assert
  - check_not_throws
